@@ -53,7 +53,7 @@ $ pytest
  
     ```
     $ docker container ls
-    You should see your container id by running this command.
+    # You should see your container id by running this command.
 
     $ docker container stop [container id]
     ```
