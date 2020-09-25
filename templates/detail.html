@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ entry.title }}{% endblock %}
+
+{% block content_title %}{{ entry.title }}{% endblock %}
+
+{% block extra_header %}
+  {% if session.logged_in %}
+    <li><a href="{{ url_for('edit', slug=entry.slug) }}">Edit entry</a></li>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h3>When did I saved the world: </h3>
+  <p>{{ entry.when.strftime("%m/%d/%Y ") }} </p>
+  <br />
+  <h3>How did I saved the world: </h3>
+  <p>{{ entry.html_content }} </p>
+  <br />
+  <h3>Who I thank for being so awesome:</h3>
+  <p>{{ entry.thanks }} </p>
+  <br />
+  <i>Created: {{ entry.timestamp.strftime('%m/%d/%Y at %I:%M%p') }}</i>
+{% endblock %}
